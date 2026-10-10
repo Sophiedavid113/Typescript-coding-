@@ -1,0 +1,121 @@
+Variable 
+  let name: string = "Ali";
+let age: number = 25;
+let isActive: boolean = true;
+....................................................................
+ let city = "Lahore";
+let price = 500;
+یہاں TypeScript خود city کو string اور price کو number سمجھے گا۔
+....................................................................
+              TypeScript میں type کیا ہے؟
+
+type کا استعمال کسی variable، object یا data کی قسم (Type) متعین کرنے کے لیے ایک نیا type بنانے میں ہوتا ہے۔
+مثالtype User = {
+  name: string;
+  age: number;
+};
+
+let person: User = {
+  name: "Ali",
+  age: 25
+};
+
+console.log(person.name);
+console.log(person.age);
+ answer Ali   25
+....................................................................
+                          Array 
+let students: string[] = ["Ali", "Ahmed", "Sara"];
+
+console.log(students);
+console.log(students[0]);
+console.log(students[1]);   
+....................................................................
+                           Tupple 
+                      let user: [string, number, boolean] = [
+  "Ali",
+  25,
+  true
+];
+
+console.log(user);
+console.log(user[0]);
+console.log(user[1]);
+console.log(user[2]);
+....................................................................
+                          Function 
+function greet(): void {
+  console.log("Hello World");
+}
+
+greet();
+....................................................................
+Parameters
+
+function greet(name: string): void {
+  console.log("Hello " + name);
+}
+
+greet("Ali");
+greet("Ahmed");
+...................................................................
+Arrow Function
+
+const multiply = (a: number, b: number): number => {
+  return a * b;
+};
+
+console.log(multiply(5, 4));
+....................................................................
+
+        Object 
+let student = {
+  name: "Ali",
+  age: 20,
+  marks: 85
+};
+
+console.log(student);
+....................................................................
+                          Intersection type
+    آسان الفاظ میں: اگر ایک Type
+ میں User کا نام ہو اور دوسرے Type میں عمر  تو Intersection Type کے ذریعے دونوں کو ملا کر ایک ایسا Type بنا سکتے ہیں جس میں نام اور عمر دونوں موجود ہوں۔
+  type Person = {
+  name: string;
+};
+
+type Employee = {
+  salary: number;
+};
+
+type Worker = Person & Employee;
+
+let user: Worker = {
+  name: "Ali",
+  salary: 50000
+};
+
+console.log(user.name);
+console.log(user.salary);
+....................................................................
+                               Literal type
+آسان الفاظ میں: آپ یہ طے کر سکتے ہیں کہ variable میں صرف "Ali"، صرف 100 یا صرف true ہی آسکتا ہے، یا پھر چند مخصوص values میں سے کوئی ایک value آسکتی ہے
+۔let userName: "Ali" = "Ali";
+console.log(userName);
+....................................................................
+            Optional chaining 
+یہ code runtime پر error دے گا، کیونکہ user.address موجود نہیں ہے۔
+type User = {
+  name: string;
+  address?: {
+    city: string;
+  };
+};
+
+const user: User = {
+  name: "Ali"
+};
+
+console.log(user.address?.city);
+....................................................................
+
